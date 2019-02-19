@@ -1,0 +1,728 @@
+
+########## wireless info START ##########
+
+Report from: 20 Feb 2019 03:44 IST +0530
+
+Booted last: 20 Feb 2019 00:00 IST +0530
+
+Script from: 22 Oct 2018 03:34 UTC +0000
+
+##### release ###########################
+
+Distributor ID:	Ubuntu
+Description:	Ubuntu 18.04.2 LTS
+Release:	18.04
+Codename:	bionic
+
+##### kernel ############################
+
+Linux 4.18.0-15-generic #16~18.04.1-Ubuntu SMP Thu Feb 7 14:06:04 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+
+Parameters: ro, quiet, splash, vt.handoff=1
+
+##### desktop ###########################
+
+Ubuntu
+
+##### lspci #############################
+
+08:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. RTL810xE PCI Express Fast Ethernet controller [10ec:8136] (rev 07)
+	Subsystem: Hewlett-Packard Company RTL810xE PCI Express Fast Ethernet controller [103c:2212]
+	Kernel driver in use: r8169
+
+09:00.0 Network controller [0280]: Ralink corp. RT3290 Wireless 802.11n 1T/1R PCIe [1814:3290]
+	Subsystem: Hewlett-Packard Company Ralink RT3290LE 802.11bgn 1x1 Wi-Fi and Bluetooth 4.0 Combo Adapter [103c:18ec]
+	Kernel driver in use: rt2800pci
+
+##### lsusb #############################
+
+Bus 001 Device 003: ID 0bda:5776 Realtek Semiconductor Corp. 
+Bus 001 Device 002: ID 8087:8000 Intel Corp. 
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 002 Device 009: ID 046d:0a38 Logitech, Inc. Headset H340
+Bus 002 Device 008: ID 148f:7601 Ralink Technology, Corp. MT7601U Wireless Adapter
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+##### PCMCIA card info ##################
+
+##### rfkill ############################
+
+0: phy0: Wireless LAN
+	Soft blocked: no
+	Hard blocked: no
+1: hp-wifi: Wireless LAN
+	Soft blocked: no
+	Hard blocked: no
+2: hp-bluetooth: Bluetooth
+	Soft blocked: yes
+	Hard blocked: no
+
+##### secure boot #######################
+
+SecureBoot disabled
+Platform is in Setup Mode
+
+##### lsmod #############################
+
+hp_wmi                 16384  0
+sparse_keymap          16384  1 hp_wmi
+rt2800pci              16384  0
+rt2800mmio             16384  1 rt2800pci
+rt2800lib             114688  2 rt2800mmio,rt2800pci
+rt2x00pci              16384  1 rt2800pci
+rt2x00mmio             16384  2 rt2800mmio,rt2800pci
+rt2x00lib              53248  5 rt2x00mmio,rt2x00pci,rt2800mmio,rt2800pci,rt2800lib
+mac80211              802816  3 rt2x00pci,rt2x00lib,rt2800lib
+wmi_bmof               16384  0
+cfg80211              667648  2 rt2x00lib,mac80211
+eeprom_93cx6           16384  1 rt2800pci
+wmi                    24576  2 hp_wmi,wmi_bmof
+
+##### interfaces ########################
+
+[/etc/network/interfaces]
+auto lo
+iface lo inet loopback
+
+##### ifconfig ##########################
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback <MAC address> brd <MAC address>
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp8s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether <MAC 'enp8s0' [IF1]> brd <MAC address>
+3: wlp9s0f0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether <MAC 'wlp9s0f0' [IF2]> brd <MAC address>
+    inet 192.168.31.214/24 brd 192.168.31.255 scope global dynamic noprefixroute wlp9s0f0
+       valid_lft 41218sec preferred_lft 41218sec
+    inet6 fe80::f5a4:9449:dbad:df3f/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+
+##### iwconfig ##########################
+
+enp8s0    no wireless extensions.
+
+lo        no wireless extensions.
+
+wlp9s0f0  IEEE 802.11  ESSID:"B 409"  
+          Mode:Managed  Frequency:2.417 GHz  Access Point: <MAC 'B 409' [AC1]>   
+          Bit Rate:19.5 Mb/s   Tx-Power=20 dBm   
+          Retry short  long limit:2   RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=30/70  Signal level=-80 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:6677  Invalid misc:6879   Missed beacon:0
+
+##### route #############################
+
+default via 192.168.31.1 dev wlp9s0f0 proto dhcp metric 600 
+192.168.31.0/24 dev wlp9s0f0 proto kernel scope link src 192.168.31.214 metric 600 
+
+##### resolv.conf #######################
+
+[777 root '/etc/resolv.conf' -> '../run/systemd/resolve/stub-resolv.conf']
+
+nameserver 127.0.0.53
+options edns0
+
+##### network managers ##################
+
+Installed:
+
+	NetworkManager
+
+Running:
+
+root       770     1  0 03:11 ?        00:00:01 /usr/sbin/NetworkManager --no-daemon
+
+##### NetworkManager info ###############
+
+GENERAL.DEVICE:                         wlp9s0f0
+GENERAL.TYPE:                           wifi
+GENERAL.NM-TYPE:                        NMDeviceWifi
+GENERAL.VENDOR:                         Ralink corp.
+GENERAL.PRODUCT:                        RT3290 Wireless 802.11n 1T/1R PCIe (Ralink RT3290LE 802.11bgn 1x1 Wi-Fi and Bluetooth 4.0 Combo Adapter)
+GENERAL.DRIVER:                         rt2800pci
+GENERAL.DRIVER-VERSION:                 4.18.0-15-generic
+GENERAL.FIRMWARE-VERSION:               N/A
+GENERAL.HWADDR:                         <MAC 'wlp9s0f0' [IF2]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected)
+GENERAL.REASON:                         0 (No reason given)
+GENERAL.UDI:                            /sys/devices/pci0000:00/0000:00:1c.5/0000:09:00.0/net/wlp9s0f0
+GENERAL.IP-IFACE:                       wlp9s0f0
+GENERAL.IS-SOFTWARE:                    no
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     B 409 1
+GENERAL.CON-UUID:                       eff1f6d2-5b51-4411-909c-1351cbeb45e7
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/1
+GENERAL.METERED:                        no (guessed)
+CAPABILITIES.CARRIER-DETECT:            no
+CAPABILITIES.SPEED:                     6 Mb/s
+CAPABILITIES.IS-SOFTWARE:               no
+CAPABILITIES.SRIOV:                     no
+WIFI-PROPERTIES.WEP:                    yes
+WIFI-PROPERTIES.WPA:                    yes
+WIFI-PROPERTIES.WPA2:                   yes
+WIFI-PROPERTIES.TKIP:                   yes
+WIFI-PROPERTIES.CCMP:                   yes
+WIFI-PROPERTIES.AP:                     yes
+WIFI-PROPERTIES.ADHOC:                  yes
+WIFI-PROPERTIES.2GHZ:                   yes
+WIFI-PROPERTIES.5GHZ:                   no
+IP4.ADDRESS[1]:                         192.168.31.214/24
+IP4.GATEWAY:                            192.168.31.1
+IP4.ROUTE[1]:                           dst = 0.0.0.0/0, nh = 192.168.31.1, mt = 600
+IP4.ROUTE[2]:                           dst = 192.168.31.0/24, nh = 0.0.0.0, mt = 600
+IP4.DNS[1]:                             192.168.31.1
+DHCP4.OPTION[1]:                        requested_subnet_mask = 1
+DHCP4.OPTION[2]:                        subnet_mask = 255.255.255.0
+DHCP4.OPTION[3]:                        requested_rfc3442_classless_static_routes = 1
+DHCP4.OPTION[4]:                        domain_name_servers = 192.168.31.1
+DHCP4.OPTION[5]:                        ip_address = 192.168.31.214
+DHCP4.OPTION[6]:                        requested_static_routes = 1
+DHCP4.OPTION[7]:                        dhcp_server_identifier = 192.168.31.1
+DHCP4.OPTION[8]:                        requested_time_offset = 1
+DHCP4.OPTION[9]:                        broadcast_address = 192.168.31.255
+DHCP4.OPTION[10]:                       dhcp_rebinding_time = 37800
+DHCP4.OPTION[11]:                       requested_interface_mtu = 1
+DHCP4.OPTION[12]:                       requested_domain_name_servers = 1
+DHCP4.OPTION[13]:                       dhcp_message_type = 5
+DHCP4.OPTION[14]:                       requested_broadcast_address = 1
+DHCP4.OPTION[15]:                       routers = 192.168.31.1
+DHCP4.OPTION[16]:                       dhcp_renewal_time = 21600
+DHCP4.OPTION[17]:                       requested_domain_name = 1
+DHCP4.OPTION[18]:                       requested_routers = 1
+DHCP4.OPTION[19]:                       expiry = 1550655709
+DHCP4.OPTION[20]:                       host_name = MiWiFi-R3L-srv
+DHCP4.OPTION[21]:                       requested_wpad = 1
+DHCP4.OPTION[22]:                       requested_netbios_scope = 1
+DHCP4.OPTION[23]:                       requested_ms_classless_static_routes = 1
+DHCP4.OPTION[24]:                       requested_netbios_name_servers = 1
+DHCP4.OPTION[25]:                       network_number = 192.168.31.0
+DHCP4.OPTION[26]:                       requested_domain_search = 1
+DHCP4.OPTION[27]:                       next_server = 192.168.31.1
+DHCP4.OPTION[28]:                       requested_ntp_servers = 1
+DHCP4.OPTION[29]:                       vendor_encapsulated_options = miwifi-R3L-2.8.50
+DHCP4.OPTION[30]:                       dhcp_lease_time = 43200
+DHCP4.OPTION[31]:                       requested_host_name = 1
+IP6.ADDRESS[1]:                         fe80::f5a4:9449:dbad:df3f/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = ff00::/8, nh = ::, mt = 256, table=255
+IP6.ROUTE[2]:                           dst = fe80::/64, nh = ::, mt = 256
+IP6.ROUTE[3]:                           dst = fe80::/64, nh = ::, mt = 600
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: /org/freedesktop/NetworkManager/Settings/{1}
+CONNECTIONS.AVAILABLE-CONNECTIONS[1]:   eff1f6d2-5b51-4411-909c-1351cbeb45e7 | B 409 1
+
+GENERAL.DEVICE:                         enp8s0
+GENERAL.TYPE:                           ethernet
+GENERAL.NM-TYPE:                        NMDeviceEthernet
+GENERAL.VENDOR:                         Realtek Semiconductor Co., Ltd.
+GENERAL.PRODUCT:                        RTL810xE PCI Express Fast Ethernet controller
+GENERAL.DRIVER:                         r8169
+GENERAL.DRIVER-VERSION:                 2.3LK-NAPI
+GENERAL.FIRMWARE-VERSION:               --
+GENERAL.HWADDR:                         <MAC 'enp8s0' [IF1]>
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          20 (unavailable)
+GENERAL.REASON:                         40 (Carrier/link changed)
+GENERAL.UDI:                            /sys/devices/pci0000:00/0000:00:1c.2/0000:08:00.0/net/enp8s0
+GENERAL.IP-IFACE:                       --
+GENERAL.IS-SOFTWARE:                    no
+GENERAL.NM-MANAGED:                     yes
+GENERAL.AUTOCONNECT:                    yes
+GENERAL.FIRMWARE-MISSING:               no
+GENERAL.NM-PLUGIN-MISSING:              no
+GENERAL.PHYS-PORT-ID:                   --
+GENERAL.CONNECTION:                     --
+GENERAL.CON-UUID:                       --
+GENERAL.CON-PATH:                       --
+GENERAL.METERED:                        unknown
+CAPABILITIES.CARRIER-DETECT:            yes
+CAPABILITIES.SPEED:                     100 Mb/s
+CAPABILITIES.IS-SOFTWARE:               no
+CAPABILITIES.SRIOV:                     no
+WIRED-PROPERTIES.CARRIER:               off
+CONNECTIONS.AVAILABLE-CONNECTION-PATHS: --
+
+SSID           BSSID              MODE   CHAN  FREQ      RATE        SIGNAL  BARS  SECURITY          ACTIVE  IN-USE 
+NSIT_STAFF     <MAC 'NSIT_STAFF' [AC4]>  Infra  11    2462 MHz  130 Mbit/s  44      ▂▄__  WPA1 WPA2 802.1X  no             
+NSIT_STUDENTS  <MAC 'NSIT_STUDENTS' [AC2]>  Infra  11    2462 MHz  130 Mbit/s  44      ▂▄__  WPA1 WPA2 802.1X  no             
+B 409          <MAC 'B 409' [AC1]>  Infra  2     2417 MHz  130 Mbit/s  40      ▂▄__  WPA1 WPA2         yes     *      
+test1          <MAC 'test1' [AC3]>  Infra  11    2462 MHz  130 Mbit/s  40      ▂▄__  WPA1 WPA2         no             
+NSIT_FACULTY   <MAC 'NSIT_FACULTY' [AC5]>  Infra  11    2462 MHz  130 Mbit/s  40      ▂▄__  WPA1 WPA2 802.1X  no             
+
+##### NetworkManager.state ##############
+
+[main]
+NetworkingEnabled=true
+WirelessEnabled=true
+WWANEnabled=true
+
+##### NetworkManager config #############
+
+[[/etc/NetworkManager/conf.d/default-wifi-powersave-on.conf]]
+[connection]
+wifi.powersave = 0
+
+[[/etc/NetworkManager/NetworkManager.conf]]
+[main]
+plugins=ifupdown,keyfile
+[ifupdown]
+managed=false
+[device]
+wifi.scan-rand-mac-address=no
+
+[[/usr/lib/NetworkManager/conf.d/10-dns-resolved.conf]]
+[main]
+dns=systemd-resolved
+
+[[/usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf]]
+[keyfile]
+unmanaged-devices=*,except:type:wifi,except:type:wwan
+
+[[/usr/lib/NetworkManager/conf.d/20-connectivity-ubuntu.conf]]
+[connectivity]
+uri=http://connectivity-check.ubuntu.com/
+
+[[/usr/lib/NetworkManager/conf.d/no-mac-addr-change.conf]]
+[device-mac-addr-change-wifi]
+match-device=driver:rtl8723bs,driver:rtl8189es,driver:r8188eu,driver:8188eu,driver:eagle_sdio,driver:wl
+wifi.scan-rand-mac-address=no
+wifi.cloned-mac-address=preserve
+ethernet.cloned-mac-address=preserve
+
+##### NetworkManager profiles ###########
+
+[[/etc/NetworkManager/system-connections/B 409 1]] (600 root)
+[connection] id=B 409 1 | type=wifi | permissions=
+[wifi] mac-address=<MAC 'wlp9s0f0' [IF2]> | mac-address-blacklist= | ssid=B 409
+[ipv4] method=auto
+[ipv6] method=auto
+
+[[/etc/NetworkManager/system-connections/B 409]] (600 root)
+[connection] id=B 409 | type=wifi | permissions=
+[wifi] mac-address=<MAC address> | mac-address-blacklist= | ssid=B 409
+[ipv4] method=auto
+[ipv6] method=auto
+
+##### Netplan config ####################
+
+[/etc/netplan/01-network-manager-all.yaml]
+network:
+  version: 2
+  renderer: NetworkManager
+
+##### iw reg get ########################
+
+Region: Asia/Kolkata (based on set time zone)
+
+global
+country CN: DFS-FCC
+	(2402 - 2482 @ 40), (N/A, 20), (N/A)
+	(5170 - 5250 @ 80), (N/A, 23), (N/A), AUTO-BW
+	(5250 - 5330 @ 80), (N/A, 23), (0 ms), DFS, AUTO-BW
+	(5735 - 5835 @ 80), (N/A, 30), (N/A)
+	(57240 - 59400 @ 2160), (N/A, 28), (N/A)
+	(59400 - 63720 @ 2160), (N/A, 44), (N/A)
+	(63720 - 65880 @ 2160), (N/A, 28), (N/A)
+
+##### iwlist channels ###################
+
+enp8s0    no frequency information.
+
+lo        no frequency information.
+
+wlp9s0f0  13 channels in total; available frequencies :
+          Channel 01 : 2.412 GHz
+          Channel 02 : 2.417 GHz
+          Channel 03 : 2.422 GHz
+          Channel 04 : 2.427 GHz
+          Channel 05 : 2.432 GHz
+          Channel 06 : 2.437 GHz
+          Channel 07 : 2.442 GHz
+          Channel 08 : 2.447 GHz
+          Channel 09 : 2.452 GHz
+          Channel 10 : 2.457 GHz
+          Channel 11 : 2.462 GHz
+          Channel 12 : 2.467 GHz
+          Channel 13 : 2.472 GHz
+          Current Frequency:2.417 GHz (Channel 2)
+
+##### iwlist scan #######################
+
+enp8s0    Interface doesn't support scanning.
+
+lo        Interface doesn't support scanning.
+
+Channel occupancy:
+
+      1   APs on   Frequency:2.417 GHz (Channel 2)
+      4   APs on   Frequency:2.462 GHz (Channel 11)
+
+wlp9s0f0  Scan completed :
+          Cell 01 - Address: <MAC 'B 409' [AC1]>
+                    Channel:2
+                    Frequency:2.417 GHz (Channel 2)
+                    Quality=30/70  Signal level=-80 dBm  
+                    Encryption key:on
+                    ESSID:"B 409"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 9 Mb/s
+                              18 Mb/s; 36 Mb/s; 54 Mb/s
+                    Bit Rates:6 Mb/s; 12 Mb/s; 24 Mb/s; 48 Mb/s
+                    Mode:Master
+                    Extra:tsf=00000009f5cf336e
+                    Extra: Last beacon: 96ms ago
+                    IE: WPA Version 1
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (2) : TKIP CCMP
+                        Authentication Suites (1) : PSK
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (2) : TKIP CCMP
+                        Authentication Suites (1) : PSK
+          Cell 02 - Address: <MAC 'NSIT_STUDENTS' [AC2]>
+                    Channel:11
+                    Frequency:2.462 GHz (Channel 11)
+                    Quality=34/70  Signal level=-76 dBm  
+                    Encryption key:on
+                    ESSID:"NSIT_STUDENTS"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 6 Mb/s; 9 Mb/s
+                              11 Mb/s; 12 Mb/s; 18 Mb/s
+                    Bit Rates:24 Mb/s; 36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=0000001d3b166559
+                    Extra: Last beacon: 96ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : 802.1x
+                    IE: WPA Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : 802.1x
+          Cell 03 - Address: <MAC 'test1' [AC3]>
+                    Channel:11
+                    Frequency:2.462 GHz (Channel 11)
+                    Quality=36/70  Signal level=-74 dBm  
+                    Encryption key:on
+                    ESSID:"test1"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 6 Mb/s; 9 Mb/s
+                              11 Mb/s; 12 Mb/s; 18 Mb/s
+                    Bit Rates:24 Mb/s; 36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=0000001d3b1640b7
+                    Extra: Last beacon: 96ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+                    IE: WPA Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+          Cell 04 - Address: <MAC 'NSIT_STAFF' [AC4]>
+                    Channel:11
+                    Frequency:2.462 GHz (Channel 11)
+                    Quality=34/70  Signal level=-76 dBm  
+                    Encryption key:on
+                    ESSID:"NSIT_STAFF"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 6 Mb/s; 9 Mb/s
+                              11 Mb/s; 12 Mb/s; 18 Mb/s
+                    Bit Rates:24 Mb/s; 36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=0000001d3b167619
+                    Extra: Last beacon: 96ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : 802.1x
+                    IE: WPA Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : 802.1x
+          Cell 05 - Address: <MAC 'NSIT_FACULTY' [AC5]>
+                    Channel:11
+                    Frequency:2.462 GHz (Channel 11)
+                    Quality=34/70  Signal level=-76 dBm  
+                    Encryption key:on
+                    ESSID:"NSIT_FACULTY"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 6 Mb/s; 9 Mb/s
+                              11 Mb/s; 12 Mb/s; 18 Mb/s
+                    Bit Rates:24 Mb/s; 36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=0000001d3b161c4d
+                    Extra: Last beacon: 96ms ago
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : 802.1x
+                    IE: WPA Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : 802.1x
+
+##### module infos ######################
+
+[rt2800pci]
+filename:       /lib/modules/4.18.0-15-generic/kernel/drivers/net/wireless/ralink/rt2x00/rt2800pci.ko
+license:        GPL
+firmware:       rt2860.bin
+description:    Ralink RT2800 PCI & PCMCIA Wireless LAN driver.
+version:        2.3.0
+author:         http://rt2x00.serialmonkey.com
+srcversion:     99E7C626D61A874D884E3A2
+depends:        rt2x00lib,rt2800lib,rt2800mmio,rt2x00mmio,rt2x00pci,eeprom_93cx6
+retpoline:      Y
+intree:         Y
+name:           rt2800pci
+vermagic:       4.18.0-15-generic SMP mod_unload 
+signat:         PKCS#7
+signer:         
+sig_key:        
+sig_hashalgo:   md4
+parm:           nohwcrypt:Disable hardware encryption. (bool)
+
+[rt2800mmio]
+filename:       /lib/modules/4.18.0-15-generic/kernel/drivers/net/wireless/ralink/rt2x00/rt2800mmio.ko
+license:        GPL
+description:    rt2800 MMIO library
+version:        2.3.0
+author:         http://rt2x00.serialmonkey.com
+srcversion:     BB8B8955B8B201DFEB6191F
+depends:        rt2x00mmio,rt2x00lib,rt2800lib
+retpoline:      Y
+intree:         Y
+name:           rt2800mmio
+vermagic:       4.18.0-15-generic SMP mod_unload 
+signat:         PKCS#7
+signer:         
+sig_key:        
+sig_hashalgo:   md4
+
+[rt2800lib]
+filename:       /lib/modules/4.18.0-15-generic/kernel/drivers/net/wireless/ralink/rt2x00/rt2800lib.ko
+license:        GPL
+description:    Ralink RT2800 library
+version:        2.3.0
+author:         http://rt2x00.serialmonkey.com, Bartlomiej Zolnierkiewicz
+srcversion:     966CF51FCABF548A597F127
+depends:        rt2x00lib,mac80211
+retpoline:      Y
+intree:         Y
+name:           rt2800lib
+vermagic:       4.18.0-15-generic SMP mod_unload 
+signat:         PKCS#7
+signer:         
+sig_key:        
+sig_hashalgo:   md4
+
+[rt2x00pci]
+filename:       /lib/modules/4.18.0-15-generic/kernel/drivers/net/wireless/ralink/rt2x00/rt2x00pci.ko
+license:        GPL
+description:    rt2x00 pci library
+version:        2.3.0
+author:         http://rt2x00.serialmonkey.com
+srcversion:     C5A0354349252C4888D0842
+depends:        rt2x00lib,mac80211
+retpoline:      Y
+intree:         Y
+name:           rt2x00pci
+vermagic:       4.18.0-15-generic SMP mod_unload 
+signat:         PKCS#7
+signer:         
+sig_key:        
+sig_hashalgo:   md4
+
+[rt2x00mmio]
+filename:       /lib/modules/4.18.0-15-generic/kernel/drivers/net/wireless/ralink/rt2x00/rt2x00mmio.ko
+license:        GPL
+description:    rt2x00 mmio library
+version:        2.3.0
+author:         http://rt2x00.serialmonkey.com
+srcversion:     4E56E599A263E22755195FD
+depends:        rt2x00lib
+retpoline:      Y
+intree:         Y
+name:           rt2x00mmio
+vermagic:       4.18.0-15-generic SMP mod_unload 
+signat:         PKCS#7
+signer:         
+sig_key:        
+sig_hashalgo:   md4
+
+[rt2x00lib]
+filename:       /lib/modules/4.18.0-15-generic/kernel/drivers/net/wireless/ralink/rt2x00/rt2x00lib.ko
+license:        GPL
+description:    rt2x00 library
+version:        2.3.0
+author:         http://rt2x00.serialmonkey.com
+srcversion:     E9726B139222EDB02105054
+depends:        mac80211,cfg80211
+retpoline:      Y
+intree:         Y
+name:           rt2x00lib
+vermagic:       4.18.0-15-generic SMP mod_unload 
+signat:         PKCS#7
+signer:         
+sig_key:        
+sig_hashalgo:   md4
+
+[mac80211]
+filename:       /lib/modules/4.18.0-15-generic/kernel/net/mac80211/mac80211.ko
+license:        GPL
+description:    IEEE 802.11 subsystem
+srcversion:     C5D73328CD704BB6E363074
+depends:        cfg80211
+retpoline:      Y
+intree:         Y
+name:           mac80211
+vermagic:       4.18.0-15-generic SMP mod_unload 
+signat:         PKCS#7
+signer:         
+sig_key:        
+sig_hashalgo:   md4
+parm:           minstrel_vht_only:Use only VHT rates when VHT is supported by sta. (bool)
+parm:           max_nullfunc_tries:Maximum nullfunc tx tries before disconnecting (reason 4). (int)
+parm:           max_probe_tries:Maximum probe tries before disconnecting (reason 4). (int)
+parm:           beacon_loss_count:Number of beacon intervals before we decide beacon was lost. (int)
+parm:           probe_wait_ms:Maximum time(ms) to wait for probe response before disconnecting (reason 4). (int)
+parm:           ieee80211_default_rc_algo:Default rate control algorithm for mac80211 to use (charp)
+
+[cfg80211]
+filename:       /lib/modules/4.18.0-15-generic/kernel/net/wireless/cfg80211.ko
+description:    wireless configuration support
+license:        GPL
+author:         Johannes Berg
+srcversion:     BFB309EF7C6C321F605D36E
+depends:        
+retpoline:      Y
+intree:         Y
+name:           cfg80211
+vermagic:       4.18.0-15-generic SMP mod_unload 
+signat:         PKCS#7
+signer:         
+sig_key:        
+sig_hashalgo:   md4
+parm:           bss_entries_limit:limit to number of scan BSS entries (per wiphy, default 1000) (int)
+parm:           ieee80211_regdom:IEEE 802.11 regulatory domain code (charp)
+parm:           cfg80211_disable_40mhz_24ghz:Disable 40MHz support in the 2.4GHz band (bool)
+
+##### module parameters #################
+
+[rt2800pci]
+nohwcrypt: N
+
+[mac80211]
+beacon_loss_count: 7
+ieee80211_default_rc_algo: minstrel_ht
+max_nullfunc_tries: 2
+max_probe_tries: 5
+minstrel_vht_only: Y
+probe_wait_ms: 500
+
+[cfg80211]
+bss_entries_limit: 1000
+cfg80211_disable_40mhz_24ghz: N
+ieee80211_regdom: 00
+
+##### /etc/modules ######################
+
+rt2870sta
+rtbth
+
+##### modprobe options ##################
+
+[/etc/modprobe.d/amd64-microcode-blacklist.conf]
+blacklist microcode
+
+[/etc/modprobe.d/blacklist-ath_pci.conf]
+blacklist ath_pci
+
+[/etc/modprobe.d/blacklist.conf]
+blacklist evbug
+blacklist usbmouse
+blacklist usbkbd
+blacklist eepro100
+blacklist de4x5
+blacklist eth1394
+blacklist snd_intel8x0m
+blacklist snd_aw2
+blacklist i2c_i801
+blacklist prism54
+blacklist bcm43xx
+blacklist garmin_gps
+blacklist asus_acpi
+blacklist snd_pcsp
+blacklist pcspkr
+blacklist amd76x_edac
+blacklist rt2800usb
+blacklist rt2800lib
+blacklist rt2x00usb
+blacklist rt2x00lib
+
+[/etc/modprobe.d/blacklist-mt7601u.conf]
+blacklist mt7601u
+
+[/etc/modprobe.d/blacklist-rare-network.conf]
+alias net-pf-3 off
+alias net-pf-6 off
+alias net-pf-9 off
+alias net-pf-11 off
+alias net-pf-12 off
+alias net-pf-19 off
+alias net-pf-21 off
+alias net-pf-36 off
+
+[/etc/modprobe.d/intel-microcode-blacklist.conf]
+blacklist microcode
+
+[/etc/modprobe.d/iwlwifi.conf]
+remove iwlwifi \
+(/sbin/lsmod | grep -o -e ^iwlmvm -e ^iwldvm -e ^iwlwifi | xargs /sbin/rmmod) \
+&& /sbin/modprobe -r mac80211
+
+[/etc/modprobe.d/ralink-bt.conf]
+install rtbth /sbin/modprobe --ignore-install rtbth; mknod /dev/rtbth c 192 0; /usr/bin/rtbt &
+
+[/etc/modprobe.d/rtbth-dkms.conf]
+blacklist rtbth
+
+##### rc.local ##########################
+
+grep: /etc/rc.local: No such file or directory
+
+##### pm-utils ##########################
+
+##### udev rules ########################
+
+##### dmesg #############################
+
+[   15.365436] rt2800pci 0000:09:00.0 wlp9s0f0: renamed from wlan0
+[   24.795870] IPv6: ADDRCONF(NETDEV_UP): enp8s0: link is not ready
+[   25.032100] r8169 0000:08:00.0 enp8s0: link down (repeated 2 times)
+[   25.032208] IPv6: ADDRCONF(NETDEV_UP): enp8s0: link is not ready
+[   25.071347] IPv6: ADDRCONF(NETDEV_UP): wlp9s0f0: link is not ready
+[   25.071410] ieee80211 phy0: rt2x00lib_request_firmware: Info - Loading firmware file 'rt3290.bin'
+[   25.168385] ieee80211 phy0: rt2x00lib_request_firmware: Info - Firmware detected - version: 0.37
+[   25.309126] IPv6: ADDRCONF(NETDEV_UP): wlp9s0f0: link is not ready (repeated 2 times)
+[   26.463637] wlp9s0f0: authenticate with <MAC 'B 409' [AC1]>
+[   26.464990] wlp9s0f0: send auth to <MAC 'B 409' [AC1]> (try 1/3)
+[   26.505430] wlp9s0f0: authenticated
+[   26.508107] wlp9s0f0: associate with <MAC 'B 409' [AC1]> (try 1/3)
+[   26.546375] wlp9s0f0: RX AssocResp from <MAC 'B 409' [AC1]> (capab=0xc11 status=0 aid=2)
+[   26.546476] wlp9s0f0: associated
+[   26.672703] r8169 0000:08:00.0 enp8s0: link up
+[   26.672720] IPv6: ADDRCONF(NETDEV_CHANGE): enp8s0: link becomes ready
+[   26.808259] IPv6: ADDRCONF(NETDEV_CHANGE): wlp9s0f0: link becomes ready
+[  921.899804] r8169 0000:08:00.0 enp8s0: link down
+
+########## wireless info END ############
